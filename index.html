@@ -27,7 +27,7 @@
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
-  .tim { height:300px; width:100%; }
+  table .block { width:100%; cellspacing:20px; }
   
 
 </style>
@@ -36,14 +36,27 @@
 
 <h2>Timeline</h2>
 
-<div ex:role="view"
-   ex:viewClass="Timeline"
-   ex:start=".start"
-   ex:end=".end"
-   ex:topBandUnit="month"
-   ex:bottomBandUnit="year">
-   ex:timelineheight="200">
-  </div>
+<table class="block">
+  <tr>
+    <td>>
+      <div ex:role="view"
+       ex:viewClass="Timeline"
+       ex:start=".start"
+       ex:end=".end"
+       ex:topBandUnit="month"
+       ex:bottomBandUnit="year"
+       ex:bubbleWidth="500"
+       ex:bubbleHeight="300"
+       ex:timelineheight="200">
+      </div>
+      <center ex:role="logo" ex:color="DimGrey"></center>
+    </td>
+    <td width="20%">
+      <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
+      <div ex:role="facet" ex:expression=".gender" ex:facetLabel="Gender"></div>
+    </td>
+  </tr>
+</table>
 <h2>&nbsp;</h2>
 
  <div ex:role="view"
