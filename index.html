@@ -28,6 +28,10 @@
 <style>
   body { margin:0; padding:0; }
   .timeline  { height:300px; width:100%; }
+  img.resize{
+    width:540px; /* you can use % */
+    height: auto;
+}
 </style>
 </head>
 <body>
@@ -51,7 +55,7 @@
   
   <div ex:role="lens">
       <b ex:content=".label"></b>
-      <p><img ex:if-exists=".image" ex:src-content=".image" /></p>
+      <p><img class="resize" ex:if-exists=".image" ex:src-content=".image" /></p>
       <p ex:content=".description"></p>
       <i ex:content=".initials"></i>
    </div>
