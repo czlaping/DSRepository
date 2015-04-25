@@ -42,34 +42,36 @@
       <table width="100%">
         <tr>
           <td width="100%">
+            <div ex:role="view"
+             ex:viewClass="Timeline"
+             ex:start=".start"
+             ex:end=".end"
+             ex:topBandUnit="month"
+             ex:bottomBandUnit="year"
+             ex:bubbleWidth="500"
+             ex:bubbleHeight="300"
+             ex:timelineheight="200">
+           </div>
+          </td>
+        </tr>
+        <tr>
+          <td width="100%">
            <div ex:role="view"
              ex:viewClass="GoogleMaps2"
              ex:label=".label"
              ex:latlng=".latlng"
              ex:center="38.5707742, -85.9092808"
              ex:zoom="3" >         
-          </div>
-        </td>
-        <td width="100%">
-          <div ex:role="view"
-           ex:viewClass="Timeline"
-           ex:start=".start"
-           ex:end=".end"
-           ex:topBandUnit="month"
-           ex:bottomBandUnit="year"
-           ex:bubbleWidth="500"
-           ex:bubbleHeight="300"
-           ex:timelineheight="200">
-          </div>
-          <center ex:role="logo" ex:color="DimGrey"></center>
-        </td>
+           </div>
+          </td>
         </tr>
       </table>
     </td>
     <td width="20%">
       <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
       <div ex:role="facet" ex:expression=".gender" ex:facetLabel="Gender"></div>
-    </td>
+      <center ex:role="logo" ex:color="DimGrey"></center>
+      </td>
   </tr>
 </table>
 <h2>&nbsp;</h2>
