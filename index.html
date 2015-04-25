@@ -48,6 +48,13 @@
      ex:center="38.5707742, -85.9092808"
      ex:zoom="3" >         
   </div>
+  
+  <div ex:role="lens">
+      <b ex:content=".label"></b>
+      <p><img ex:if-exists=".image" ex:src-content=".image" /></p>
+      <p ex:content=".description"></p>
+      <i ex:content=".initials"></i>
+   </div>
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiY3psYXBpbmciLCJhIjoiTEhqd2ZZVSJ9.Sx39AZgmcblNlYVgran0bg';
