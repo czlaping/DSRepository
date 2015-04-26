@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Teachers Who O</title>
+
+<script src="http://api.simile-widgets.org/exhibit/3.1.0rc/exhibit-api.js" type="text/javascript"></script>
+<script src="http://api.simile-widgets.org/exhibit/3.1.0rc/extensions/time/time-extension.js"></script>
+
+   <link     
+        rel="exhibit/data" 
+        type="application/jsonp"
+        href="https://spreadsheets.google.com/feeds/list/1XXovHQ1wTtC5veCJYShAwfqkq5mEvHpA-w9gP3DbGEM/od6/public/values?alt=json-in-script"
+        ex:converter="googleSpreadsheets" />
+
+<style>
+  #tPanel {
+    border: 1px solid black;
+    display: block;
+    height: 300px;
+    overflow-y: scroll;
+    }
+  #tPanel td {
+    padding: 6px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Timeline</h2>
+
+  <table id="tPanel">
+   <tr>
+    <td valign="top" width="20%">
+      <!-- FACETS -->
+      <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
+      <div ex:role="facet" ex:expression=".gender"
+              ex:facetLabel="Gender"
+              ex:height="6em"
+              ex:scroll="TRUE"
+              ex:collapsible="FALSE"
+              
+              
+             ></div>
+      <div ex:role="facet" ex:expression=".type" ex:facetLabel="Type"></div>
+      <!-- END FACETS -->
+
+    </td>
+   
+    <!-- MAIN PANEL -->
+    <td valign="top">
+      <div ex:role="view"
+          ex:viewClass="Timeline"
+          ex:start=".start"
+          ex:end=".end"    
+          ex:timelineHeight="100"
+          ex:topBandUnit="month"
+          ex:bottomBandUnit="year"
+          ex:showHeader="TRUE"
+      </div>
+      <center ex:role="logo" ex:color="DimGrey"></center>
+    </td>
+   </tr>
+   
+   
+  <div ex:role="lens">
+      <b ex:content=".label"></b>
+      <p ex:content=".description"></p>
+      <i ex:content=".initials"></i>
+   </div>
+
+
+</body>
+</html>
