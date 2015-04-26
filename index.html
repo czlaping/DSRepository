@@ -16,14 +16,16 @@
 <style>
   #tPanel {
     border: 1px solid black;
-    
-    height: 300px;
+     height: 100%;
     width: 100%;
     overflow-y: scroll;
     }
   #tPanel td {
     padding: 6px;
-  }
+    }
+.sidebar td {
+   height:30%;
+   }
 </style>
 </head>
 <body>
@@ -35,15 +37,18 @@
     <td valign="top" width="">
       <!-- FACETS -->
       <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
-      <div ex:role="facet" ex:expression=".gender"
+      <div class="sidebar" ex:role="facet" ex:expression=".gender"
               ex:facetLabel="Gender"
-              ex:height="6em"
+              ex:height="30%"
               ex:scroll="TRUE"
               ex:collapsible="FALSE"
-              
-              
-             ></div>
-      <div ex:role="facet" ex:expression=".type" ex:facetLabel="Type"></div>
+       ></div>
+      <div class="sidebar" ex:role="facet" ex:expression=".type"
+             ex:facetLabel="Type"
+             ex:height="30%"
+             ex:scroll="TRUE"
+             ex:collapsible="FALSE"
+     ></div>
       <!-- END FACETS -->
 
     </td>
