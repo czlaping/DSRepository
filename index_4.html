@@ -1,0 +1,171 @@
+<html>
+  <head>
+    <title>SIMILE Widgets | Exhibit 3.0 | Examples </title>
+    <!-- <link rel="stylesheet" href="http://www.simile-widgets.org/styles/common.css" type="text/css" /> --->
+
+<script src="http://api.simile-widgets.org/exhibit/3.1.0rc/exhibit-api.js" type="text/javascript"></script>
+<script src="http://api.simile-widgets.org/exhibit/3.1.0rc/extensions/time/time-extension.js"></script>
+
+  <link rel="exhibit-extension" 
+        href="http://api.simile-widgets.org/exhibit/3.1.0rc/extensions/map/map-extension.js?service=google2&gmapKey=ABQIAAAA5JLLfCE9c7HAtg25QM2KCRRyiP6mHEsQpwvxB19-hS9Kgd8RYhSXEtJVAXDUCZPqwtZZi7-HUYUYrw" 
+        type="text/javascript" />
+
+  <script src="http://api.simile-widgets.org/exhibit/3.1.0rc/extensions/map/map-extension.js"></script>
+
+  <link     
+        rel="exhibit/data" 
+        type="application/jsonp"
+        href="https://spreadsheets.google.com/feeds/list/1XXovHQ1wTtC5veCJYShAwfqkq5mEvHpA-w9gP3DbGEM/od6/public/values?alt=json-in-script"
+        ex:converter="googleSpreadsheets" /> 
+    <style>
+      table {
+        width: 100%;
+        }
+      td {
+        
+        }
+     .exhibit-facet-body {
+	      background: ;
+        }
+      
+      a:link { color: black;}
+      a:visited { color: black;}
+      #tblock { width: 100%; }
+      #lblock { width: 30%; border-collapse: collapse; margin: 0 auto;}
+      #lblock td { border: 1px solid black; height:120%; padding:.2em; text-align: center;}      
+      #TMPage { display: block;}      
+      #TBPage { display: none;}
+      table.itemThumbnail { border: 1px solid black; margin: 0.5em; padding: 0.5em 1em; text-align: center;}
+      td.itemThumbnail-caption { text-align: center;}   
+      
+    </style>
+  </head>
+  <body>
+    <div id="tblock"><br>
+      <div>
+        <table id="lblock" cellspacing="0">
+          <tr>
+            <td><a href="#" onclick="document.getElementById('TBPage').style.display='none'; document.getElementById('TMPage').style.display='block' ">Timeline and Maps</a></td>
+            <td><a href="#" onclick="document.getElementById('TMPage').style.display='none'; document.getElementById('TBPage').style.display='block'">Lists and Table</a></td>            
+         </tr>
+       </table>
+      </div>
+      <div id="TMPage">
+                <table width="100%">
+                  <tr>
+                    <td valign="top" style="padding: 10px;">
+                         <!-- FACETS -->
+                          <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
+                          <div ex:role="facet" ex:expression=".gender" ex:facetLabel="Gender"></div>
+                          <div ex:role="facet" ex:expression=".type" ex:facetLabel="Type"></div>
+                          <!-- END FACETS -->
+                  </td>
+                  <td valign="top" width="80%">
+                       <div ex:role="view"
+                         ex:viewClass="Timeline"
+                         ex:proxy=".label"
+                         ex:start=".start"
+                         ex:end=".end"
+                         ex:topBandUnit="month"
+                         ex:bottomBandUnit="year"
+                         ex:selectCoordinator="teacher"
+                         ex:timelineheight="100">
+                      </div>
+
+                      <div ex:role="lens">
+
+                        <table >
+                          <tr>
+                             <td><b ex:content=".label"></b></td>
+                          </tr>
+                          <tr style="">
+                            <td  style="border-top: 1px solid gray; vertical-align:middle; padding:.2em">
+                             <p style="text-align:center" ex:content=".description"></p>
+                             <p ex:content=".eventType"></p>
+                             <div ex:if-exists=".location">Localização: <span ex:content=".location"></span></div>
+                           </td>
+                            <td style="vertical-align:top; padding-left:.2em" >
+                                <p><img ex:if-exists=".image" ex:src-content=".image" width="150"/></p>
+                            </td>
+                         </tr>
+                        </table>
+                      </div>
+                      <div ex:role="coordinator" id="teacher"></div>
+                          <div ex:role="viewPanel">
+                                <div ex:role="lens" style="margin:.4em 0; border: 1px solid gray; padding:2em 2em; text-align:left;" class="item " style="display: none;">
+                                  <div style="margin-bottom: 1.5em; text-align:center"><img ex:src-content=".image" width="150px" /></div>
+                                  <p><span style="font-weight:bold" ex:content=".label"></span><br>
+                                     <span ex:content=".start"></span>
+                                  </p>
+                                  <p><b>Headline:</b><span ex:content=".description"></span><br>
+                                     <b>Age:</b><span ex:content=".age"></span><br>
+                                     <b>Grade:</b><span ex:content=".grade"></span><br>
+                                     <b>Headline:</b><span ex:content=".description"></span><br>
+                                  </p>
+                               </div>
+
+                               <div ex:role="view"
+                                   ex:viewClass="GoogleMaps2"
+                                   ex:label="Map"
+                                   ex:latlng=".latlng"
+                                   ex:center="38.5707742, -85.9092808"
+                                   ex:zoom="3"
+                                  ex:showSummary="false"
+                                    ex:selectCoordinator="teacher">
+                              </div>
+                          <div  ex:role="view"
+                                ex:label="List">
+                         </div>
+                    </div>
+                </td>
+               </tr>
+            </table>
+        </div>     
+        <div id="TBPage">
+                <table width="100%">
+                  <tr>
+                    <td valign="top" width="15%">
+                         <!-- FACETS -->
+                          <div ex:role="facet" ex:facetClass="TextSearch" ex:facetLabel="Search"></div>
+                          <div ex:role="facet" ex:expression=".gender" ex:facetLabel="Gender"></div>
+                          <div ex:role="facet" ex:expression=".type" ex:facetLabel="Type"></div>
+                          <!-- END FACETS -->
+                  </td>
+                  <td valign="top">
+                    <div ex:role="viewPanel">
+                      <div ex:role="lens" class="item" style=" ">
+                                
+                      </div>
+                      <div role="view" ex:viewClass="Thumbnail"
+                            ex:showAll="true"
+                            ex:possibleOrders=".date_arrest, .age, .numOfVictims, .grade_taught">
+                              
+                              <table ex:role="lens" class="itemThumbnail" style=" ">
+                                <tr>
+                                  <td>
+                                    <div class=" " style="position: relative text-align: center"><img ex:src-content=".image" width="150px"/></div>
+                                  </td>            
+                                </tr>
+                                <tr>
+                                  <td class="itemThumbnail-caption"><span ex:content=".label"></span></td>            
+                                </tr>
+                                <tr>
+                                  <td class=" " style="text-align:left;"><b>Age:&nbsp;</b><span ex:content=".age"></span><br/>
+                                      <b>Grade Taught:&nbsp;</b><span ex:content=".grade_taught"></span>&nbsp;<span ex:content=".subject_taught"></span><br/>
+                                      <b>School:&nbsp;</b><span ex:content=".school"></span><br/>
+                                      <b>Number of Victims:&nbsp;</b><span ex:content=".numOfVictims"></span><br/>
+                                      <b>Victim Age(s):&nbsp;</b><span ex:content=".victim_ages"></span><br/>
+                                      <b>Date Arrested:&nbsp;</b><span ex:content=".arrest_date"></span><br/>
+                                  </td>            
+                                </tr>
+                              </table>
+
+                      </div>
+                    </div>
+                  </td>
+               </tr>
+            </table>
+        </div>
+      </div>
+  </body>
+</html>
